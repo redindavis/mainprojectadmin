@@ -1,0 +1,37 @@
+<div class="modal fade " id="catModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div style="background-color: orange;" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #categoryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="row">
+                  <div class="mb-2 col-md-6">
+                    <label class="form-label">Category Name:</label>
+                    <input type="text" class="form-control" name="productName" ngModel required>
+                    <label class="form-label">Category Description:</label>
+                    <textarea class="form-control" rows="3" id="comment" name="description" ngModel required></textarea>
+                </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Image</label>
+                    <input class="img-fluid" type="file">
+                 </div>
+
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success" [disabled]="!categoryForm.valid">Save</button>
+                </div>
+              </form>
+              
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
