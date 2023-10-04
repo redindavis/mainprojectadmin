@@ -1,4 +1,4 @@
-<div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div style="background-color: orange;" class="modal-content">
         <div class="modal-header">
@@ -10,7 +10,7 @@
                 <div class="row">
                   <div class="mb-2 col-md-6">
                     <label class="form-label">Product Name:</label>
-                    <input type="text" class="form-control" name="name"  ngModel required>
+                    <input type="text" class="form-control" name="name"   [(ngModel)]="productData.name" required>
                     
                     <label class="form-label">Product Category:</label>
                     <select class="form-control"  name="categoryId" [(ngModel)]="productData.productCategory" required>
@@ -21,19 +21,19 @@
                     
                     
                     <label class="form-label">Price:</label>
-                    <input type="number" class="form-control" name="price"  ngModel required>
+                    <input type="number" class="form-control" name="price" [(ngModel)]="productData.price" required>
                     
                     <label class="form-label">Available Stock:</label>
-                    <input type="number" class="form-control"  name="stock" ngModel required>
+                    <input type="number" class="form-control"  name="stock" [(ngModel)]="productData.stock" required>
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">Image</label>
                     <input class="form-control" type="file" name="image" (change)="onFileChanged($event)" ngModel required>
                 <img [src]="imageSrc" alt="Selected Image" *ngIf="imageSrc" class="img-thumbnail mt-2">
-                <!-- Add an event listener (change) to trigger the onFileChanged method when the file input changes -->
+            
                     
                     <label class="form-label">Description:</label>
-                    <textarea class="form-control" rows="3" id="comment" name="description" ngModel required></textarea>
+                    <textarea class="form-control" rows="3" id="comment" name="description" [(ngModel)]="productData.description" required></textarea>
                   </div>
                 </div>
                 

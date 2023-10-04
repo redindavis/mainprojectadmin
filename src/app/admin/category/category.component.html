@@ -1,10 +1,11 @@
-
+<app-navbar></app-navbar>
+  
 <h2 class="text-center mt-2">All Category</h2><br><br>
 
 
-<div class="container container1 d-flex justify-content-center align-items-center">
+<div class="container container1 d-flex justify-content-center align-items-center mt-5">
   <div class="input-group">
-    <input class="form-control" type="text" placeholder="search">
+    <input class="form-control" [(ngModel)]="searchTerm" type="text" placeholder="Search by name">
     <button type="submit" class="btn btn-warning">Search</button>
   </div>
 </div>
@@ -15,22 +16,30 @@
   </div>
 
   <div class="container mt-3">
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover ">
       <thead>
         <tr>
-          <th scope="col">Category Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Image</th>
+          <th class="align-middle text-center" scope="col">Category Name</th>
+          <th class="align-middle" scope="col">Description</th>
+          <th class="align-middle" scope="col">Image</th>
+          <th class="align-middle" scope="col">Controls</th>
           
-          <th></th>
         </tr>
       </thead>
       <tbody>
 
-       <tr></tr>
+       <tr *ngFor="let item of categoryData">
+        <td class="align-middle text-center">{{item.name}}</td>
+        <td class="align-middle text-center">{{item.description}}</td>
+        <td class="align-middle text-center"><img style="width: 50px; height: 50px;" src="data:image/png;base64,{{item.image}}" alt=""></td>
+        <td class="align-middle text-center"><i class="fa-solid fa-trash" (click)="delCat(item.id)"></i></td>
+
+       </tr>
 
     </tbody>
 
     </table>
   
   </div>
+
+

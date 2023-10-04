@@ -9,6 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { ProductModalComponent } from './product-modal/product-modal.component';
 import { CategoryModalComponent } from './category-modal/category-modal.component';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from '../core/interseptors/token.interceptor';
+import { EditmodalComponent } from './editmodal/editmodal.component';
+
+
+
+
+
 
 
 
@@ -20,15 +29,25 @@ import { CoreModule } from '../core/core.module';
     ProductComponent,
     ProductModalComponent,
     CategoryModalComponent,
-  ],
+    EditmodalComponent,
+    
+    ],
+
+
+    
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    CoreModule
-  
+    CoreModule,
+    HttpClientModule,
+    SharedModule
+    
 
-  ]
+  ],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}],
+  
+  
 })
 export class AdminModule { }
